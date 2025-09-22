@@ -2,12 +2,14 @@ services:
   - type: web
     name: airline-miles-calculator
     env: python
-    buildCommand: "pip install -r requirements.txt && python src/comprehensive_seeder.py"
-    startCommand: "python src/main.py"
+    buildCommand: "pip install -r requirements.txt && python3 src/ultimate_seeder.py"
+    startCommand: "python3 src/main.py"
     plan: free
-    healthCheckPath: /
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
       - key: FLASK_ENV
         value: production
+      - key: PORT
+        fromService:
+          type: web
+          name: airline-miles-calculator
+          property: port
