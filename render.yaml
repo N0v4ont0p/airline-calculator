@@ -2,7 +2,7 @@ services:
   - type: web
     name: airline-miles-calculator
     env: python
-    buildCommand: "pip install -r requirements.txt && python src/simple_seeder.py"
+    buildCommand: "pip install -r requirements.txt && python src/comprehensive_seeder.py"
     startCommand: "python src/main.py"
     plan: free
     healthCheckPath: /

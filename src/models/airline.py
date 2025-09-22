@@ -221,7 +221,8 @@ def calculate_miles_earned(distance, earning_rate, elite_status='none', ticket_p
         # Revenue-based earning: miles per dollar spent
         base_miles = ticket_price * loyalty_program.base_earning_rate * earning_rate.earning_percentage
     else:
-        # Distance-based earning: miles per mile flown
+        # Distance-based earning: miles per mile flown (each program has different rates)
+        # earning_percentage is program-specific (e.g., AA might give 150% while Qantas gives 125% for same booking class)
         base_miles = distance * earning_rate.earning_percentage
     
     # Apply partner airline reduction if applicable
