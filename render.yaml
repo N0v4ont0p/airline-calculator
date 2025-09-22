@@ -2,6 +2,7 @@ services:
   - type: web
     name: airline-miles-calculator
     env: python
+    runtime: python-3.11.9
     buildCommand: "pip install -r requirements.txt && python3 src/ultimate_seeder.py"
     startCommand: "python3 src/main.py"
     plan: free
