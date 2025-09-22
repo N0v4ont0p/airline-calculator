@@ -1,0 +1,13 @@
+{
+  "name": "airline-miles-calculator",
+  "version": "1.0.0",
+  "description": "Comprehensive airline miles calculator with worldwide coverage",
+  "main": "src/main.py",
+  "scripts": {
+    "start": "python src/main.py",
+    "build": "echo 'Frontend already built and included in src/static'"
+  },
+  "keywords": ["airline", "miles", "calculator", "loyalty", "travel"],
+  "author": "Manus AI",
+  "license": "MIT"
+}

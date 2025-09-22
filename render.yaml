@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: airline-miles-calculator
+    env: python
+    buildCommand: "pip install -r requirements.txt && python src/simple_seeder.py"
+    startCommand: "python src/main.py"
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: FLASK_ENV
+        value: production
