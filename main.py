@@ -21,9 +21,12 @@ if DATABASE_URL:
     if DATABASE_URL.startswith('postgres://'):
         DATABASE_URL = DATABASE_URL.replace('postgres://', 'postgresql://', 1)
     app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+    print(f"Using PostgreSQL database")
 else:
-    # Development: Use SQLite
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///airline_calculator.db'
+    # Development/Fallback: Use SQLite
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'airline_calculator.db')
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+    print(f"Using SQLite database at {db_path}")
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

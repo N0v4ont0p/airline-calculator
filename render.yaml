@@ -2,20 +2,9 @@ services:
   - type: web
     name: airline-miles-calculator
     env: python
-    runtime: python-3.11.9
-    buildCommand: "pip install -r requirements.txt && python3 seed_data.py"
-    startCommand: "python3 main.py"
     plan: free
+    buildCommand: pip install -r requirements.txt && python seed_data.py
+    startCommand: python main.py
     envVars:
-      - key: FLASK_ENV
-        value: production
-      - key: PORT
-        fromService:
-          type: web
-          name: airline-miles-calculator
-          property: port
-  - type: pserv
-    name: airline-miles-calculator-db
-    env: postgresql
-    plan: free
-    ipAllowList: []
+      - key: PYTHON_VERSION
+        value: 3.11.0

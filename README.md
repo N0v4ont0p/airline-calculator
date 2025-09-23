@@ -31,10 +31,32 @@ The most comprehensive airline miles calculator with worldwide coverage, accurat
 
 ## 🚀 Quick Deploy to Render.com
 
+### Method 1: Direct Repository Deployment (Recommended)
+
+1. **Create a new Web Service on Render.com**
+2. **Connect your GitHub repository** containing this code
+3. **Configure the service:**
+   - **Build Command**: `pip install -r requirements.txt && python seed_data.py`
+   - **Start Command**: `python main.py`
+   - **Environment**: `Python 3`
+   - **Plan**: `Free` (or higher)
+4. **Add Environment Variables** (optional for PostgreSQL):
+   - `DATABASE_URL`: Your PostgreSQL connection string (automatically provided by Render if you add a PostgreSQL database)
+5. **Deploy**: Click "Create Web Service"
+
+### Method 2: Using render.yaml (Alternative)
+
 1. **Extract** this archive to your repository
 2. **Push** to GitHub (or your Git provider)
 3. **Connect** to Render.com - it will automatically detect the `render.yaml`
 4. **Deploy** - Render will build and start automatically
+
+### Database Setup
+
+The application automatically:
+- Uses PostgreSQL in production (when `DATABASE_URL` is available)
+- Falls back to SQLite for development/testing
+- Seeds the database with airport and airline data on first deployment
 
 ## 🛠️ Local Development
 
@@ -42,17 +64,19 @@ The most comprehensive airline miles calculator with worldwide coverage, accurat
 ```bash
 cd airline-miles-calculator-ULTIMATE
 pip install -r requirements.txt
-python3 src/ultimate_seeder.py  # Populate database
-python3 src/main.py             # Start server
+python seed_data.py  # Populate database
+python main.py       # Start server
 ```
 
 ### Frontend Development
-The production-built frontend is included in `src/static/`. For development:
+The production-built frontend is included in `static/`. For development:
 ```bash
 # Frontend source is in the original project
 npm install
 npm run dev
 ```
+
+The application will be available at `http://localhost:5000`
 
 ## 📊 Database Statistics
 
