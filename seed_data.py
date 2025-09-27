@@ -1,232 +1,123 @@
 #!/usr/bin/env python3
 """
-Production data seeder for Airline Miles Calculator
-Optimized for PostgreSQL deployment on Render.com
+Additional data seeder for comprehensive airport coverage
 """
 
 import os
 import sys
-from main import app, db, Airport, Airline, LoyaltyProgram, FareClass, BookingClass, EarningRate
+import csv
+from main import app, db, Airport
 
-def seed_basic_data():
-    """Seed essential data for production deployment"""
-    print("Starting production data seeding...")
+def seed_comprehensive_airports():
+    """Seed comprehensive airport data from the provided list"""
     
-    with app.app_context():
-        # Clear existing data
-        print("Clearing existing data...")
-        EarningRate.query.delete()
-        BookingClass.query.delete()
-        FareClass.query.delete()
-        LoyaltyProgram.query.delete()
-        Airline.query.delete()
-        Airport.query.delete()
-        db.session.commit()
+    # Airport data from the user's pasted content
+    comprehensive_airports = [
+        # Major US Airports
+        {'name': 'Hartsfield-Jackson Atlanta International Airport', 'code': 'ATL', 'city': 'Atlanta', 'state': 'GA', 'country': 'United States', 'latitude': 33.6407, 'longitude': -84.4277},
+        {'name': 'Dallas/Fort Worth International Airport', 'code': 'DFW', 'city': 'Dallas', 'state': 'TX', 'country': 'United States', 'latitude': 32.8998, 'longitude': -97.0403},
+        {'name': 'Denver International Airport', 'code': 'DEN', 'city': 'Denver', 'state': 'CO', 'country': 'United States', 'latitude': 39.8561, 'longitude': -104.6737},
+        {'name': 'McCarran International Airport', 'code': 'LAS', 'city': 'Las Vegas', 'state': 'NV', 'country': 'United States', 'latitude': 36.0840, 'longitude': -115.1537},
+        {'name': 'Phoenix Sky Harbor International Airport', 'code': 'PHX', 'city': 'Phoenix', 'state': 'AZ', 'country': 'United States', 'latitude': 33.4342, 'longitude': -112.0116},
+        {'name': 'George Bush Intercontinental Airport', 'code': 'IAH', 'city': 'Houston', 'state': 'TX', 'country': 'United States', 'latitude': 29.9902, 'longitude': -95.3368},
+        {'name': 'Orlando International Airport', 'code': 'MCO', 'city': 'Orlando', 'state': 'FL', 'country': 'United States', 'latitude': 28.4312, 'longitude': -81.3081},
+        {'name': 'Seattle-Tacoma International Airport', 'code': 'SEA', 'city': 'Seattle', 'state': 'WA', 'country': 'United States', 'latitude': 47.4502, 'longitude': -122.3088},
+        {'name': 'Charlotte Douglas International Airport', 'code': 'CLT', 'city': 'Charlotte', 'state': 'NC', 'country': 'United States', 'latitude': 35.2144, 'longitude': -80.9473},
+        {'name': 'Newark Liberty International Airport', 'code': 'EWR', 'city': 'Newark', 'state': 'NJ', 'country': 'United States', 'latitude': 40.6895, 'longitude': -74.1745},
+        {'name': 'Logan International Airport', 'code': 'BOS', 'city': 'Boston', 'state': 'MA', 'country': 'United States', 'latitude': 42.3656, 'longitude': -71.0096},
+        {'name': 'Fort Lauderdale-Hollywood International Airport', 'code': 'FLL', 'city': 'Fort Lauderdale', 'state': 'FL', 'country': 'United States', 'latitude': 26.0742, 'longitude': -80.1506},
+        {'name': 'Honolulu International Airport', 'code': 'HNL', 'city': 'Honolulu', 'state': 'HI', 'country': 'United States', 'latitude': 21.3099, 'longitude': -157.8581},
+        {'name': 'Washington Dulles International Airport', 'code': 'IAD', 'city': 'Washington', 'state': 'DC', 'country': 'United States', 'latitude': 38.9531, 'longitude': -77.4565},
+        {'name': 'Minneapolis-Saint Paul International Airport', 'code': 'MSP', 'city': 'Minneapolis', 'state': 'MN', 'country': 'United States', 'latitude': 44.8848, 'longitude': -93.2223},
+        {'name': 'Detroit Metropolitan Wayne County Airport', 'code': 'DTW', 'city': 'Detroit', 'state': 'MI', 'country': 'United States', 'latitude': 42.2162, 'longitude': -83.3554},
+        {'name': 'Philadelphia International Airport', 'code': 'PHL', 'city': 'Philadelphia', 'state': 'PA', 'country': 'United States', 'latitude': 42.2162, 'longitude': -83.3554},
+        {'name': 'LaGuardia Airport', 'code': 'LGA', 'city': 'New York', 'state': 'NY', 'country': 'United States', 'latitude': 40.7769, 'longitude': -73.8740},
+        {'name': 'Baltimore-Washington International Airport', 'code': 'BWI', 'city': 'Baltimore', 'state': 'MD', 'country': 'United States', 'latitude': 39.1774, 'longitude': -76.6684},
+        {'name': 'Salt Lake City International Airport', 'code': 'SLC', 'city': 'Salt Lake City', 'state': 'UT', 'country': 'United States', 'latitude': 40.7899, 'longitude': -111.9791},
         
-        # Seed major international airports
-        print("Seeding major international airports...")
-        airports_data = [
-            {'code': 'JFK', 'name': 'John F. Kennedy International Airport', 'city': 'New York', 'country': 'US', 'lat': 40.6413, 'lon': -73.7781},
-            {'code': 'LHR', 'name': 'London Heathrow Airport', 'city': 'London', 'country': 'GB', 'lat': 51.4700, 'lon': -0.4543},
-            {'code': 'CDG', 'name': 'Charles de Gaulle Airport', 'city': 'Paris', 'country': 'FR', 'lat': 49.0097, 'lon': 2.5479},
-            {'code': 'NRT', 'name': 'Narita International Airport', 'city': 'Tokyo', 'country': 'JP', 'lat': 35.7720, 'lon': 140.3929},
-            {'code': 'SIN', 'name': 'Singapore Changi Airport', 'city': 'Singapore', 'country': 'SG', 'lat': 1.3644, 'lon': 103.9915},
-            {'code': 'DXB', 'name': 'Dubai International Airport', 'city': 'Dubai', 'country': 'AE', 'lat': 25.2532, 'lon': 55.3657},
-            {'code': 'LAX', 'name': 'Los Angeles International Airport', 'city': 'Los Angeles', 'country': 'US', 'lat': 33.9425, 'lon': -118.4081},
-            {'code': 'FRA', 'name': 'Frankfurt Airport', 'city': 'Frankfurt', 'country': 'DE', 'lat': 50.0379, 'lon': 8.5622},
-            {'code': 'HKG', 'name': 'Hong Kong International Airport', 'city': 'Hong Kong', 'country': 'HK', 'lat': 22.3080, 'lon': 113.9185},
-            {'code': 'SYD', 'name': 'Sydney Kingsford Smith Airport', 'city': 'Sydney', 'country': 'AU', 'lat': -33.9399, 'lon': 151.1753},
-            {'code': 'ICN', 'name': 'Incheon International Airport', 'city': 'Seoul', 'country': 'KR', 'lat': 37.4602, 'lon': 126.4407},
-            {'code': 'AMS', 'name': 'Amsterdam Airport Schiphol', 'city': 'Amsterdam', 'country': 'NL', 'lat': 52.3105, 'lon': 4.7683},
-            {'code': 'YYZ', 'name': 'Toronto Pearson International Airport', 'city': 'Toronto', 'country': 'CA', 'lat': 43.6777, 'lon': -79.6248},
-            {'code': 'DOH', 'name': 'Hamad International Airport', 'city': 'Doha', 'country': 'QA', 'lat': 25.2731, 'lon': 51.6080},
-            {'code': 'IST', 'name': 'Istanbul Airport', 'city': 'Istanbul', 'country': 'TR', 'lat': 41.2753, 'lon': 28.7519},
-            {'code': 'PVG', 'name': 'Shanghai Pudong International Airport', 'city': 'Shanghai', 'country': 'CN', 'lat': 31.1443, 'lon': 121.8083},
-            {'code': 'BKK', 'name': 'Suvarnabhumi Airport', 'city': 'Bangkok', 'country': 'TH', 'lat': 13.6900, 'lon': 100.7501},
-            {'code': 'MUC', 'name': 'Munich Airport', 'city': 'Munich', 'country': 'DE', 'lat': 48.3537, 'lon': 11.7750},
-            {'code': 'ZUR', 'name': 'Zurich Airport', 'city': 'Zurich', 'country': 'CH', 'lat': 47.4647, 'lon': 8.5492},
-            {'code': 'ORD', 'name': 'Chicago O\'Hare International Airport', 'city': 'Chicago', 'country': 'US', 'lat': 41.9742, 'lon': -87.9073},
-        ]
+        # Major International Airports
+        {'name': 'Narita International Airport', 'code': 'NRT', 'city': 'Tokyo', 'state': None, 'country': 'Japan', 'latitude': 35.7720, 'longitude': 140.3929},
+        {'name': 'Kansai International Airport', 'code': 'KIX', 'city': 'Osaka', 'state': None, 'country': 'Japan', 'latitude': 34.4347, 'longitude': 135.2441},
+        {'name': 'Gatwick Airport', 'code': 'LGW', 'city': 'London', 'state': None, 'country': 'United Kingdom', 'latitude': 51.1537, 'longitude': -0.1821},
+        {'name': 'Manchester Airport', 'code': 'MAN', 'city': 'Manchester', 'state': None, 'country': 'United Kingdom', 'latitude': 53.3537, 'longitude': -2.2750},
+        {'name': 'Madrid-Barajas Airport', 'code': 'MAD', 'city': 'Madrid', 'state': None, 'country': 'Spain', 'latitude': 40.4719, 'longitude': -3.5626},
+        {'name': 'Barcelona-El Prat Airport', 'code': 'BCN', 'city': 'Barcelona', 'state': None, 'country': 'Spain', 'latitude': 40.2971, 'longitude': 2.0833},
+        {'name': 'Rome Fiumicino Airport', 'code': 'FCO', 'city': 'Rome', 'state': None, 'country': 'Italy', 'latitude': 41.8003, 'longitude': 12.2389},
+        {'name': 'Milan Malpensa Airport', 'code': 'MXP', 'city': 'Milan', 'state': None, 'country': 'Italy', 'latitude': 45.6306, 'longitude': 8.7231},
+        {'name': 'Vienna International Airport', 'code': 'VIE', 'city': 'Vienna', 'state': None, 'country': 'Austria', 'latitude': 48.1103, 'longitude': 16.5697},
+        {'name': 'Brussels Airport', 'code': 'BRU', 'city': 'Brussels', 'state': None, 'country': 'Belgium', 'latitude': 50.9010, 'longitude': 4.4844},
+        {'name': 'Copenhagen Airport', 'code': 'CPH', 'city': 'Copenhagen', 'state': None, 'country': 'Denmark', 'latitude': 55.6181, 'longitude': 12.6561},
+        {'name': 'Stockholm Arlanda Airport', 'code': 'ARN', 'city': 'Stockholm', 'state': None, 'country': 'Sweden', 'latitude': 59.6519, 'longitude': 17.9186},
+        {'name': 'Oslo Airport', 'code': 'OSL', 'city': 'Oslo', 'state': None, 'country': 'Norway', 'latitude': 60.1939, 'longitude': 11.1004},
+        {'name': 'Helsinki-Vantaa Airport', 'code': 'HEL', 'city': 'Helsinki', 'state': None, 'country': 'Finland', 'latitude': 60.3172, 'longitude': 24.9633},
+        {'name': 'Istanbul Airport', 'code': 'IST', 'city': 'Istanbul', 'state': None, 'country': 'Turkey', 'latitude': 41.2619, 'longitude': 28.7414},
+        {'name': 'Doha Hamad International Airport', 'code': 'DOH', 'city': 'Doha', 'state': None, 'country': 'Qatar', 'latitude': 25.2731, 'longitude': 51.6080},
+        {'name': 'Abu Dhabi International Airport', 'code': 'AUH', 'city': 'Abu Dhabi', 'state': None, 'country': 'UAE', 'latitude': 24.4330, 'longitude': 54.6511},
+        {'name': 'Kuwait International Airport', 'code': 'KWI', 'city': 'Kuwait City', 'state': None, 'country': 'Kuwait', 'latitude': 29.2267, 'longitude': 47.9689},
+        {'name': 'King Abdulaziz International Airport', 'code': 'JED', 'city': 'Jeddah', 'state': None, 'country': 'Saudi Arabia', 'latitude': 21.6796, 'longitude': 39.1565},
+        {'name': 'King Khalid International Airport', 'code': 'RUH', 'city': 'Riyadh', 'state': None, 'country': 'Saudi Arabia', 'latitude': 24.9576, 'longitude': 46.6988},
         
-        for airport_data in airports_data:
-            airport = Airport(
-                code=airport_data['code'],
-                name=airport_data['name'],
-                city=airport_data['city'],
-                state='',
-                country=airport_data['country'],
-                latitude=airport_data['lat'],
-                longitude=airport_data['lon']
-            )
+        # Asia-Pacific
+        {'name': 'Suvarnabhumi Airport', 'code': 'BKK', 'city': 'Bangkok', 'state': None, 'country': 'Thailand', 'latitude': 13.6900, 'longitude': 100.7501},
+        {'name': 'Kuala Lumpur International Airport', 'code': 'KUL', 'city': 'Kuala Lumpur', 'state': None, 'country': 'Malaysia', 'latitude': 2.7456, 'longitude': 101.7072},
+        {'name': 'Soekarno-Hatta International Airport', 'code': 'CGK', 'city': 'Jakarta', 'state': None, 'country': 'Indonesia', 'latitude': -6.1256, 'longitude': 106.6559},
+        {'name': 'Ninoy Aquino International Airport', 'code': 'MNL', 'city': 'Manila', 'state': None, 'country': 'Philippines', 'latitude': 14.5086, 'longitude': 121.0194},
+        {'name': 'Indira Gandhi International Airport', 'code': 'DEL', 'city': 'New Delhi', 'state': None, 'country': 'India', 'latitude': 28.5562, 'longitude': 77.1000},
+        {'name': 'Chhatrapati Shivaji International Airport', 'code': 'BOM', 'city': 'Mumbai', 'state': None, 'country': 'India', 'latitude': 19.0896, 'longitude': 72.8656},
+        {'name': 'Kempegowda International Airport', 'code': 'BLR', 'city': 'Bangalore', 'state': None, 'country': 'India', 'latitude': 13.1986, 'longitude': 77.7066},
+        {'name': 'Chennai International Airport', 'code': 'MAA', 'city': 'Chennai', 'state': None, 'country': 'India', 'latitude': 12.9941, 'longitude': 80.1709},
+        {'name': 'Rajiv Gandhi International Airport', 'code': 'HYD', 'city': 'Hyderabad', 'state': None, 'country': 'India', 'latitude': 17.2403, 'longitude': 78.4294},
+        {'name': 'Netaji Subhas Chandra Bose International Airport', 'code': 'CCU', 'city': 'Kolkata', 'state': None, 'country': 'India', 'latitude': 22.6546, 'longitude': 88.4467},
+        
+        # Canada
+        {'name': 'Vancouver International Airport', 'code': 'YVR', 'city': 'Vancouver', 'state': 'BC', 'country': 'Canada', 'latitude': 49.1967, 'longitude': -123.1815},
+        {'name': 'Calgary International Airport', 'code': 'YYC', 'city': 'Calgary', 'state': 'AB', 'country': 'Canada', 'latitude': 51.1315, 'longitude': -114.0106},
+        {'name': 'Edmonton International Airport', 'code': 'YEG', 'city': 'Edmonton', 'state': 'AB', 'country': 'Canada', 'latitude': 53.3097, 'longitude': -113.5801},
+        {'name': 'Winnipeg James Armstrong Richardson International Airport', 'code': 'YWG', 'city': 'Winnipeg', 'state': 'MB', 'country': 'Canada', 'latitude': 49.9100, 'longitude': -97.2390},
+        {'name': 'Ottawa Macdonald-Cartier International Airport', 'code': 'YOW', 'city': 'Ottawa', 'state': 'ON', 'country': 'Canada', 'latitude': 45.3225, 'longitude': -75.6692},
+        {'name': 'Montreal-Pierre Elliott Trudeau International Airport', 'code': 'YUL', 'city': 'Montreal', 'state': 'QC', 'country': 'Canada', 'latitude': 45.4706, 'longitude': -73.7408},
+        {'name': 'Halifax Stanfield International Airport', 'code': 'YHZ', 'city': 'Halifax', 'state': 'NS', 'country': 'Canada', 'latitude': 44.8808, 'longitude': -63.5086},
+        
+        # Australia & New Zealand
+        {'name': 'Melbourne Airport', 'code': 'MEL', 'city': 'Melbourne', 'state': 'VIC', 'country': 'Australia', 'latitude': -37.6690, 'longitude': 144.8410},
+        {'name': 'Brisbane Airport', 'code': 'BNE', 'city': 'Brisbane', 'state': 'QLD', 'country': 'Australia', 'latitude': -27.3942, 'longitude': 153.1218},
+        {'name': 'Perth Airport', 'code': 'PER', 'city': 'Perth', 'state': 'WA', 'country': 'Australia', 'latitude': -31.9403, 'longitude': 115.9669},
+        {'name': 'Adelaide Airport', 'code': 'ADL', 'city': 'Adelaide', 'state': 'SA', 'country': 'Australia', 'latitude': -34.9285, 'longitude': 138.5918},
+        {'name': 'Auckland Airport', 'code': 'AKL', 'city': 'Auckland', 'state': None, 'country': 'New Zealand', 'latitude': -37.0082, 'longitude': 174.7850},
+        {'name': 'Christchurch Airport', 'code': 'CHC', 'city': 'Christchurch', 'state': None, 'country': 'New Zealand', 'latitude': -43.4894, 'longitude': 172.5320},
+        
+        # South America
+        {'name': 'São Paulo-Guarulhos International Airport', 'code': 'GRU', 'city': 'São Paulo', 'state': None, 'country': 'Brazil', 'latitude': -23.4356, 'longitude': -46.4731},
+        {'name': 'Rio de Janeiro-Galeão International Airport', 'code': 'GIG', 'city': 'Rio de Janeiro', 'state': None, 'country': 'Brazil', 'latitude': -22.8099, 'longitude': -43.2505},
+        {'name': 'Jorge Newbery Airfield', 'code': 'AEP', 'city': 'Buenos Aires', 'state': None, 'country': 'Argentina', 'latitude': -34.5592, 'longitude': -58.4156},
+        {'name': 'Ezeiza International Airport', 'code': 'EZE', 'city': 'Buenos Aires', 'state': None, 'country': 'Argentina', 'latitude': -34.8222, 'longitude': -58.5358},
+        {'name': 'El Dorado International Airport', 'code': 'BOG', 'city': 'Bogotá', 'state': None, 'country': 'Colombia', 'latitude': 4.7016, 'longitude': -74.1469},
+        {'name': 'Jorge Chávez International Airport', 'code': 'LIM', 'city': 'Lima', 'state': None, 'country': 'Peru', 'latitude': -12.0219, 'longitude': -77.1143},
+        {'name': 'Arturo Merino Benítez International Airport', 'code': 'SCL', 'city': 'Santiago', 'state': None, 'country': 'Chile', 'latitude': -33.3930, 'longitude': -70.7858},
+        
+        # Africa
+        {'name': 'O.R. Tambo International Airport', 'code': 'JNB', 'city': 'Johannesburg', 'state': None, 'country': 'South Africa', 'latitude': -26.1392, 'longitude': 28.2460},
+        {'name': 'Cape Town International Airport', 'code': 'CPT', 'city': 'Cape Town', 'state': None, 'country': 'South Africa', 'latitude': -33.9649, 'longitude': 18.6017},
+        {'name': 'Cairo International Airport', 'code': 'CAI', 'city': 'Cairo', 'state': None, 'country': 'Egypt', 'latitude': 30.1219, 'longitude': 31.4056},
+        {'name': 'Addis Ababa Bole International Airport', 'code': 'ADD', 'city': 'Addis Ababa', 'state': None, 'country': 'Ethiopia', 'latitude': 8.9806, 'longitude': 38.7992},
+        {'name': 'Jomo Kenyatta International Airport', 'code': 'NBO', 'city': 'Nairobi', 'state': None, 'country': 'Kenya', 'latitude': -1.3192, 'longitude': 36.9278},
+        {'name': 'Mohammed V International Airport', 'code': 'CMN', 'city': 'Casablanca', 'state': None, 'country': 'Morocco', 'latitude': 33.3675, 'longitude': -7.5898},
+    ]
+    
+    count = 0
+    for airport_data in comprehensive_airports:
+        # Check if airport already exists
+        existing = Airport.query.filter_by(code=airport_data['code']).first()
+        if not existing:
+            airport = Airport(**airport_data)
             db.session.add(airport)
-        
-        # Seed major airlines
-        print("Seeding major airlines...")
-        airlines_data = [
-            {'code': 'UA', 'name': 'United Airlines', 'country': 'US', 'alliance': 'Star Alliance', 'program': 'MileagePlus'},
-            {'code': 'AA', 'name': 'American Airlines', 'country': 'US', 'alliance': 'Oneworld', 'program': 'AAdvantage'},
-            {'code': 'DL', 'name': 'Delta Air Lines', 'country': 'US', 'alliance': 'SkyTeam', 'program': 'SkyMiles'},
-            {'code': 'BA', 'name': 'British Airways', 'country': 'GB', 'alliance': 'Oneworld', 'program': 'Executive Club'},
-            {'code': 'LH', 'name': 'Lufthansa', 'country': 'DE', 'alliance': 'Star Alliance', 'program': 'Miles & More'},
-            {'code': 'AF', 'name': 'Air France', 'country': 'FR', 'alliance': 'SkyTeam', 'program': 'Flying Blue'},
-            {'code': 'SQ', 'name': 'Singapore Airlines', 'country': 'SG', 'alliance': 'Star Alliance', 'program': 'KrisFlyer'},
-            {'code': 'CX', 'name': 'Cathay Pacific', 'country': 'HK', 'alliance': 'Oneworld', 'program': 'Asia Miles'},
-            {'code': 'QF', 'name': 'Qantas', 'country': 'AU', 'alliance': 'Oneworld', 'program': 'Frequent Flyer'},
-            {'code': 'EK', 'name': 'Emirates', 'country': 'AE', 'alliance': None, 'program': 'Skywards'},
-        ]
-        
-        for airline_data in airlines_data:
-            airline = Airline(
-                code=airline_data['code'],
-                name=airline_data['name'],
-                country=airline_data['country'],
-                alliance=airline_data['alliance'],
-                loyalty_program=airline_data['program']
-            )
-            db.session.add(airline)
-        
-        db.session.commit()
-        
-        # Seed loyalty programs
-        print("Seeding loyalty programs...")
-        loyalty_programs_data = [
-            {'airline_code': 'UA', 'name': 'MileagePlus', 'alliance': 'Star Alliance', 'silver': 'Premier Silver', 'gold': 'Premier Gold', 'platinum': 'Premier Platinum'},
-            {'airline_code': 'AA', 'name': 'AAdvantage', 'alliance': 'Oneworld', 'silver': 'Gold', 'gold': 'Platinum', 'platinum': 'Platinum Pro'},
-            {'airline_code': 'DL', 'name': 'SkyMiles', 'alliance': 'SkyTeam', 'silver': 'Silver Medallion', 'gold': 'Gold Medallion', 'platinum': 'Diamond Medallion'},
-            {'airline_code': 'BA', 'name': 'Executive Club', 'alliance': 'Oneworld', 'silver': 'Executive Club Silver', 'gold': 'Executive Club Gold', 'platinum': 'Executive Club Platinum'},
-            {'airline_code': 'LH', 'name': 'Miles & More', 'alliance': 'Star Alliance', 'silver': 'Frequent Traveller', 'gold': 'Senator', 'platinum': 'HON Circle'},
-            {'airline_code': 'AF', 'name': 'Flying Blue', 'alliance': 'SkyTeam', 'silver': 'Silver', 'gold': 'Gold', 'platinum': 'Platinum'},
-            {'airline_code': 'SQ', 'name': 'KrisFlyer', 'alliance': 'Star Alliance', 'silver': 'KrisFlyer Elite Silver', 'gold': 'KrisFlyer Elite Gold', 'platinum': 'PPS Club'},
-            {'airline_code': 'CX', 'name': 'Asia Miles', 'alliance': 'Oneworld', 'silver': 'Marco Polo Silver', 'gold': 'Marco Polo Gold', 'platinum': 'Marco Polo Diamond'},
-            {'airline_code': 'QF', 'name': 'Frequent Flyer', 'alliance': 'Oneworld', 'silver': 'Silver', 'gold': 'Gold', 'platinum': 'Platinum'},
-            {'airline_code': 'EK', 'name': 'Skywards', 'alliance': None, 'silver': 'Silver', 'gold': 'Gold', 'platinum': 'Platinum'},
-        ]
-        
-        for program_data in loyalty_programs_data:
-            airline = Airline.query.filter_by(code=program_data['airline_code']).first()
-            if airline:
-                program = LoyaltyProgram(
-                    name=program_data['name'],
-                    airline_id=airline.id,
-                    alliance=program_data['alliance'],
-                    base_earning_rate=1.0,
-                    silver_bonus=0.25,
-                    gold_bonus=0.50,
-                    platinum_bonus=1.00,
-                    silver_tier_name=program_data['silver'],
-                    gold_tier_name=program_data['gold'],
-                    platinum_tier_name=program_data['platinum'],
-                    earning_model='distance',
-                    currency='USD'
-                )
-                db.session.add(program)
-        
-        # Seed fare classes
-        print("Seeding fare classes...")
-        fare_classes_data = [
-            {'name': 'Economy', 'description': 'Economy class'},
-            {'name': 'Premium Economy', 'description': 'Premium economy class'},
-            {'name': 'Business', 'description': 'Business class'},
-            {'name': 'First', 'description': 'First class'}
-        ]
-        
-        for fare_class_data in fare_classes_data:
-            fare_class = FareClass(
-                name=fare_class_data['name'],
-                description=fare_class_data['description']
-            )
-            db.session.add(fare_class)
-        
-        db.session.commit()
-        
-        # Seed booking classes
-        print("Seeding booking classes...")
-        booking_classes_data = [
-            # Economy
-            {'code': 'Y', 'description': 'Full fare economy', 'fare_class': 'Economy'},
-            {'code': 'B', 'description': 'Economy discount', 'fare_class': 'Economy'},
-            {'code': 'M', 'description': 'Economy discount', 'fare_class': 'Economy'},
-            {'code': 'H', 'description': 'Economy discount', 'fare_class': 'Economy'},
-            # Premium Economy
-            {'code': 'W', 'description': 'Premium economy full fare', 'fare_class': 'Premium Economy'},
-            {'code': 'E', 'description': 'Premium economy discount', 'fare_class': 'Premium Economy'},
-            # Business
-            {'code': 'J', 'description': 'Business full fare', 'fare_class': 'Business'},
-            {'code': 'C', 'description': 'Business full fare', 'fare_class': 'Business'},
-            {'code': 'D', 'description': 'Business discount', 'fare_class': 'Business'},
-            {'code': 'I', 'description': 'Business discount', 'fare_class': 'Business'},
-            # First
-            {'code': 'F', 'description': 'First class full fare', 'fare_class': 'First'},
-            {'code': 'A', 'description': 'First class discount', 'fare_class': 'First'},
-        ]
-        
-        for booking_class_data in booking_classes_data:
-            fare_class = FareClass.query.filter_by(name=booking_class_data['fare_class']).first()
-            if fare_class:
-                booking_class = BookingClass(
-                    code=booking_class_data['code'],
-                    description=booking_class_data['description'],
-                    fare_class_id=fare_class.id
-                )
-                db.session.add(booking_class)
-        
-        db.session.commit()
-        
-        # Seed earning rates with program-specific variations
-        print("Seeding earning rates...")
-        loyalty_programs = LoyaltyProgram.query.all()
-        booking_classes = BookingClass.query.all()
-        
-        # Program-specific earning multipliers
-        program_multipliers = {
-            'MileagePlus': {'Y': 1.0, 'B': 0.5, 'J': 1.5, 'C': 1.5, 'F': 2.0},
-            'AAdvantage': {'Y': 1.0, 'B': 0.5, 'J': 1.75, 'C': 1.75, 'F': 2.0},  # Higher business earning
-            'SkyMiles': {'Y': 1.0, 'B': 0.5, 'J': 1.5, 'C': 1.5, 'F': 1.5},
-            'Executive Club': {'Y': 1.0, 'B': 0.5, 'J': 1.425, 'C': 1.425, 'F': 1.5},  # Tier points focus
-            'Miles & More': {'Y': 1.0, 'B': 0.5, 'J': 1.25, 'C': 1.25, 'F': 1.5},
-            'Flying Blue': {'Y': 1.0, 'B': 0.5, 'J': 1.25, 'C': 1.25, 'F': 1.5},
-            'KrisFlyer': {'Y': 1.0, 'B': 0.5, 'J': 1.5, 'C': 1.5, 'F': 2.0},
-            'Asia Miles': {'Y': 1.0, 'B': 0.5, 'J': 1.65, 'C': 1.65, 'F': 1.8},
-            'Frequent Flyer': {'Y': 1.0, 'B': 0.5, 'J': 1.275, 'C': 1.275, 'F': 1.5},  # Lower business earning
-            'Skywards': {'Y': 1.0, 'B': 0.5, 'J': 1.5, 'C': 1.5, 'F': 2.0},
-        }
-        
-        for program in loyalty_programs:
-            for booking_class in booking_classes:
-                # Get program-specific earning multiplier
-                multipliers = program_multipliers.get(program.name, {'Y': 1.0, 'B': 0.5, 'J': 1.4, 'C': 1.4, 'F': 1.6})
-                earning_percentage = multipliers.get(booking_class.code, 1.0)
-                
-                earning_rate = EarningRate(
-                    loyalty_program_id=program.id,
-                    fare_class=booking_class.fare_class.name,
-                    booking_class=booking_class.code,
-                    earning_percentage=earning_percentage,
-                    minimum_miles=500,
-                    elite_bonus_silver=0.25,
-                    elite_bonus_gold=0.50,
-                    elite_bonus_platinum=1.00
-                )
-                db.session.add(earning_rate)
-        
-        db.session.commit()
-        
-        # Print final statistics
-        airport_count = Airport.query.count()
-        airline_count = Airline.query.count()
-        program_count = LoyaltyProgram.query.count()
-        earning_rate_count = EarningRate.query.count()
-        
-        print("==================================================")
-        print("PRODUCTION DATA SEEDING COMPLETED!")
-        print("==================================================")
-        print(f"Total airports: {airport_count}")
-        print(f"Total airlines: {airline_count}")
-        print(f"Total loyalty programs: {program_count}")
-        print(f"Total earning rates: {earning_rate_count}")
-        print("==================================================")
-        print("🎉 AIRLINE MILES CALCULATOR IS READY!")
-        print("==================================================")
+            count += 1
+    
+    db.session.commit()
+    print(f"Added {count} additional airports to the database")
+    return count
 
 if __name__ == "__main__":
-    seed_basic_data()
+    with app.app_context():
+        seed_comprehensive_airports()
+        print(f"Total airports in database: {Airport.query.count()}")

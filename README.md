@@ -1,129 +1,113 @@
-# 🛫 The World's Best Airline Miles Calculator
+# Airline Miles Calculator
 
-The most comprehensive airline miles calculator with worldwide coverage, accurate calculations, and professional design.
+A comprehensive airline miles calculator with worldwide airport coverage, alliance-specific loyalty programs, and accurate mileage calculations.
 
-## 🌟 Features
+## Features
 
-### ✈️ **Comprehensive Coverage**
-- **179 International Airports** worldwide from Wikipedia's comprehensive database
-- **69 Airlines** across all major alliances (Star Alliance, Oneworld, SkyTeam) plus unallianced carriers
-- **63 Loyalty Programs** with airline-specific tier names and earning rates
-- **1,638 Earning Rate Combinations** for accurate, program-specific calculations
+- **Comprehensive Coverage**: 100+ airports worldwide with accurate coordinates
+- **Alliance Support**: Star Alliance, Oneworld, SkyTeam, and unallianced airlines
+- **Dynamic Selection**: Airlines and loyalty programs filter by alliance
+- **Accurate Calculations**: Distance-based calculations with elite status bonuses
+- **Professional Interface**: Modern, responsive design with smooth interactions
+- **Cross-Alliance Crediting**: Calculate miles when flying one airline but crediting to another
 
-### 🎯 **Accurate Calculations**
-- **Different programs earn different miles** for the same flight (industry-accurate)
-- **Separate airline vs loyalty program selection** (fly Cathay Pacific, credit to Qantas)
-- **Elite status bonuses** with airline-specific tier names
-- **Minimum miles rules** (500 miles per segment)
-- **Booking class variations** (Y, J, C, F with different earning rates)
+## Technical Stack
 
-### 🎨 **Professional Design**
-- **Modern, Apple-inspired interface** with clean card-based layout
-- **No overlap issues** - proper z-index management for all dropdowns
-- **Responsive design** that works on all screen sizes
-- **Intuitive workflow** with clear visual hierarchy
+- **Backend**: Flask with SQLAlchemy
+- **Frontend**: React with Tailwind CSS and shadcn/ui components
+- **Database**: SQLite (development) / PostgreSQL (production)
+- **Deployment**: Render.com compatible
 
-### 🔧 **Technical Excellence**
-- **Flask backend** with SQLite database
-- **React frontend** with modern UI components
-- **RESTful API** for all data operations
-- **Production-ready** with proper error handling
+## Quick Start
 
-## 🚀 Quick Deploy to Render.com
+### Local Development
 
-### Method 1: Direct Repository Deployment (Recommended)
+1. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-1. **Create a new Web Service on Render.com**
-2. **Connect your GitHub repository** containing this code
-3. **Configure the service:**
-   - **Build Command**: `pip install -r requirements.txt && python seed_data.py`
-   - **Start Command**: `python main.py`
-   - **Environment**: `Python 3`
-   - **Plan**: `Free` (or higher)
-4. **Add Environment Variables** (optional for PostgreSQL):
-   - `DATABASE_URL`: Your PostgreSQL connection string (automatically provided by Render if you add a PostgreSQL database)
-5. **Deploy**: Click "Create Web Service"
+2. **Run the Application**:
+   ```bash
+   python main.py
+   ```
 
-### Method 2: Using render.yaml (Alternative)
+3. **Access the Application**:
+   Open http://localhost:5000 in your browser
 
-1. **Extract** this archive to your repository
-2. **Push** to GitHub (or your Git provider)
-3. **Connect** to Render.com - it will automatically detect the `render.yaml`
-4. **Deploy** - Render will build and start automatically
+### Render.com Deployment
 
-### Database Setup
+1. **Create a new Web Service** on Render.com
+2. **Connect your Git repository**
+3. **Use these settings**:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn main:app`
+   - **Environment**: Python 3.11
 
-The application automatically:
-- Uses PostgreSQL in production (when `DATABASE_URL` is available)
-- Falls back to SQLite for development/testing
-- Seeds the database with airport and airline data on first deployment
+The application will automatically:
+- Create database tables
+- Seed comprehensive airport and airline data
+- Start the Flask server
+- Serve the React frontend
 
-## 🛠️ Local Development
+## Database Schema
 
-### Backend Setup
-```bash
-cd airline-miles-calculator-ULTIMATE
-pip install -r requirements.txt
-python seed_data.py  # Populate database
-python main.py       # Start server
-```
+### Core Models
 
-### Frontend Development
-The production-built frontend is included in `static/`. For development:
-```bash
-# Frontend source is in the original project
-npm install
-npm run dev
-```
+- **Airport**: Name, IATA code, city, country, coordinates
+- **Alliance**: Star Alliance, Oneworld, SkyTeam
+- **Airline**: Name, IATA code, country, alliance membership
+- **LoyaltyProgram**: Program name, airline, currency type
+- **EliteTier**: Status levels with bonus percentages
+- **BookingClass**: Fare codes (Y, J, F, etc.) with cabin classifications
+- **EarningRate**: Miles earning rates by program, airline, and class
 
-The application will be available at `http://localhost:5000`
+### Key Features
 
-## 📊 Database Statistics
+- **Dynamic Filtering**: Airlines and programs filter by alliance selection
+- **Cross-Alliance Crediting**: Fly one airline, credit to another program
+- **Elite Status Bonuses**: Automatic calculation of status bonuses
+- **Minimum Miles**: Industry-standard 500-mile minimum per segment
+- **Partner Reductions**: Reduced earning rates for partner airlines
 
-- **179 Airports**: All major international airports worldwide
-- **69 Airlines**: Complete coverage of global carriers
-- **63 Loyalty Programs**: Every major frequent flyer program
-- **4 Fare Classes**: Economy, Premium Economy, Business, First
-- **26 Booking Classes**: Complete IATA booking class coverage
-- **1,638 Earning Rates**: Program-specific earning variations
+## API Endpoints
 
-## 🌍 Alliance Coverage
+- `GET /api/airports?search=<term>` - Search airports
+- `GET /api/alliances` - Get all alliances
+- `GET /api/airlines?alliance_id=<id>` - Get airlines by alliance
+- `GET /api/loyalty-programs?alliance_id=<id>` - Get programs by alliance
+- `GET /api/booking-classes` - Get all booking classes
+- `GET /api/elite-tiers/<program_id>` - Get elite tiers for program
+- `POST /api/calculate` - Calculate miles for a trip
 
-### Star Alliance (21 Programs)
-United MileagePlus, Lufthansa Miles & More, Singapore KrisFlyer, ANA Mileage Club, Air Canada Aeroplan, and more.
+## Calculation Algorithm
 
-### Oneworld (14 Programs)  
-American AAdvantage, British Airways Executive Club, Cathay Pacific Asia Miles, Qantas Frequent Flyer, JAL Mileage Bank, and more.
+The miles calculation considers:
 
-### SkyTeam (15 Programs)
-Delta SkyMiles, Air France-KLM Flying Blue, Korean Air SKYPASS, Aeroflot Bonus, China Southern Sky Pearl Club, and more.
+1. **Base Distance**: Great circle distance between airports
+2. **Earning Rate**: Varies by booking class and airline relationship
+3. **Alliance Factors**: Same airline (100%), alliance partner (85%), non-alliance (75%)
+4. **Cabin Class Multipliers**: Economy (100%), Premium Economy (125%), Business (150%), First (200%)
+5. **Elite Status Bonus**: Additional percentage based on status level
+6. **Minimum Miles**: 500-mile minimum per segment
 
-### Unallianced (13 Programs)
-Emirates Skywards, Etihad Guest, JetBlue TrueBlue, Southwest Rapid Rewards, and more.
+## Data Coverage
 
-## 🎯 Key Differentiators
+- **100+ Major Airports**: Worldwide coverage including all major hubs
+- **38 Airlines**: Across all three major alliances plus unallianced carriers
+- **38 Loyalty Programs**: One per airline with accurate program names
+- **15 Booking Classes**: Complete fare code coverage
+- **Elite Tiers**: 4 levels per program (Base, Silver, Gold, Platinum)
 
-1. **Separate Operating Airline vs Loyalty Program**: Accurately reflects real-world crediting scenarios
-2. **Program-Specific Earning Rates**: Different loyalty programs earn different miles for the same flight
-3. **Comprehensive Airport Database**: 179 international airports from Wikipedia's authoritative list
-4. **Professional UI/UX**: No overlap issues, modern design, intuitive workflow
-5. **Industry-Accurate Calculations**: Proper elite bonuses, minimum miles, booking class variations
+## Deployment Files
 
-## 📈 Example Calculation
+- `main.py` - Complete Flask application with all models and routes
+- `seed_data.py` - Additional airport data seeding
+- `requirements.txt` - Python dependencies
+- `Procfile` - Render.com process definition
+- `render.yaml` - Render.com service configuration
+- `static/` - Built React frontend
 
-**Route**: Shanghai (PVG) → Singapore (SIN), Cathay Pacific Business Class J
+## License
 
-**Different Programs, Different Miles**:
-- American AAdvantage: 4,059 miles (175% earning rate)
-- British Airways Executive Club: 3,353 miles (142.5% earning rate)  
-- Qantas Frequent Flyer: 3,000 miles (127.5% earning rate)
-
-*Same flight, different programs = different miles earned!*
-
-## 🏆 The World's Best
-
-This airline miles calculator sets the industry standard with comprehensive data coverage, accurate calculations, and professional design. Whether you're a frequent flyer optimizing your earning strategy or a travel enthusiast planning your next adventure, this calculator provides the most accurate and comprehensive miles calculations available.
-
----
-
-**Built with ❤️ for the global travel community**
+MIT License - Feel free to use and modify as needed.
