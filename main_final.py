@@ -43,18 +43,18 @@ class Airline(db.Model):
     code = db.Column(db.String(10), nullable=False, unique=True)
     country = db.Column(db.String(100), nullable=False)
     alliance_id = db.Column(db.Integer, db.ForeignKey('alliances.id'), nullable=True)
-    
-    loyalty_programs = db.relationship('LoyaltyProgram', backref='airline_ref', lazy=True)
 
 class LoyaltyProgram(db.Model):
     __tablename__ = 'loyalty_programs'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False)
     airline = db.Column(db.String(200), nullable=False)
+    airline_id = db.Column(db.Integer, db.ForeignKey('airlines.id'), nullable=True)
     currency_name = db.Column(db.String(100), nullable=False)
     alliance_id = db.Column(db.Integer, db.ForeignKey('alliances.id'), nullable=True)
     
     elite_tiers = db.relationship('EliteTier', backref='program', lazy=True)
+    airline_ref = db.relationship('Airline', backref='loyalty_programs', lazy=True)
 
 class EliteTier(db.Model):
     __tablename__ = 'elite_tiers'
@@ -438,6 +438,7 @@ def seed_database():
             program = LoyaltyProgram(
                 name=program_name,
                 airline=airline.name,
+                airline_id=airline.id,
                 currency_name='Miles',
                 alliance_id=airline.alliance_id
             )
