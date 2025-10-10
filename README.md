@@ -1,132 +1,108 @@
-# Airline Miles Calculator
+# Ultimate Airline Miles Calculator
 
-The world's most comprehensive airline miles calculator with 1,475+ international airports, 66 airlines across all major alliances, and accurate cross-alliance crediting calculations.
+A comprehensive, professional airline miles calculator with worldwide airport coverage, alliance-specific loyalty programs, and accurate mileage calculations.
 
 ## Features
 
 ### ✈️ **Comprehensive Coverage**
-- **1,475+ International Airports** worldwide with accurate coordinates
-- **66 Airlines** across Star Alliance, Oneworld, SkyTeam, and unallianced carriers
-- **66 Loyalty Programs** with proper program names and currency types
-- **15 Booking Classes** with accurate earning percentages
-- **Elite Status Tiers** with bonus calculations
+- **60+ Major International Airports** worldwide with accurate coordinates
+- **40 Airlines** across all major alliances (Star Alliance, Oneworld, SkyTeam) plus unallianced carriers
+- **40 Loyalty Programs** with accurate program names and earning rates
+- **16 Booking Classes** with proper fare code coverage (F, J, C, Y, etc.)
+- **4 Elite Status Tiers** with appropriate bonus percentages
 
-### 🌍 **Dynamic Alliance System**
-- Select from Star Alliance, Oneworld, SkyTeam, or Unallianced
-- Airlines and loyalty programs filter dynamically based on alliance selection
-- Cross-alliance crediting with accurate earning rate adjustments
-- Proper handling of airline partnerships and relationships
+### 🎯 **Advanced Functionality**
+- **Cross-Alliance Crediting**: Fly one airline, credit to another loyalty program
+- **Dynamic Alliance Filtering**: Select alliance to see only relevant airlines and programs
+- **Accurate Distance Calculation**: Uses geodesic calculations with real airport coordinates
+- **Industry-Standard Rules**: Minimum miles rules, booking class multipliers, elite bonuses
+- **Professional Algorithm**: Considers all factors that affect miles earning
 
-### 🎯 **Accurate Calculations**
-- Geodesic distance calculations using real airport coordinates
-- Industry-standard minimum miles rules (500 miles minimum)
-- Booking class multipliers (Economy 25-100%, Business 125-150%, First 150-200%)
-- Elite status bonuses (Silver +25%, Gold +50%, Platinum +100%)
-- Alliance relationship penalties for cross-crediting
+### 🎨 **Exceptional User Experience**
+- **Beautiful Modern Interface**: Built with React, Tailwind CSS, and shadcn/ui components
+- **Step-by-Step Workflow**: Guided process with progress tracking
+- **Real-Time Search**: Instant airport search with autocomplete
+- **Responsive Design**: Works perfectly on desktop and mobile
+- **Professional Styling**: Clean, intuitive interface with proper visual feedback
 
-### 💻 **Professional Interface**
-- Modern React frontend with Tailwind CSS and shadcn/ui components
-- Responsive design that works on all devices
-- Real-time search with autocomplete for airports, airlines, and programs
-- No overlapping dropdowns or UI issues
-- Smooth animations and professional styling
+## Quick Start
 
-## Deployment on Render.com
+### Deploy to Render.com (Recommended)
 
-### Quick Deploy
-1. **Upload** this entire folder to your Git repository (GitHub, GitLab, or Bitbucket)
-2. **Connect** your repository to Render.com
-3. **Create** a new Web Service
-4. **Deploy** - Render will automatically detect the configuration
+1. **Upload to Git Repository**
+   - Extract this package to your Git repository
+   - Commit and push all files
 
-### Manual Configuration (if needed)
-- **Build Command**: `pip install -r requirements.txt`
-- **Start Command**: `python main_final.py`
-- **Environment**: Python 3.11
+2. **Connect to Render.com**
+   - Create a new Web Service on Render.com
+   - Connect your Git repository
+   - Render will automatically detect the configuration
 
-### Environment Variables
-The application automatically handles:
-- SQLite for development
-- PostgreSQL for production (when DATABASE_URL is provided)
-- Port configuration (uses PORT environment variable)
+3. **Deploy**
+   - Render will build and deploy automatically
+   - The application handles database setup and seeding
 
-## Local Development
+### Local Development
 
-### Prerequisites
-- Python 3.11+
-- pip
+1. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### Setup
-```bash
-# Install dependencies
-pip install -r requirements.txt
+2. **Run the Application**
+   ```bash
+   python main.py
+   ```
 
-# Run the application
-python main_final.py
-```
+3. **Access the Calculator**
+   - Open http://localhost:5000 in your browser
 
-The application will:
-1. Create database tables automatically
-2. Seed with all airport and airline data
-3. Start the Flask server on port 5000
-4. Serve the React frontend at http://localhost:5000
-
-### Database
-- **Development**: SQLite (airline_calculator.db)
-- **Production**: PostgreSQL (automatically configured on Render)
-- **Auto-seeding**: All data is loaded automatically on first run
-
-## Technical Stack
+## Technical Details
 
 ### Backend
-- **Flask** - Web framework
-- **SQLAlchemy** - Database ORM
-- **Flask-CORS** - Cross-origin resource sharing
-- **geopy** - Geographic distance calculations
-- **psycopg2** - PostgreSQL adapter
+- **Framework**: Flask with SQLAlchemy
+- **Database**: SQLite (development) / PostgreSQL (production)
+- **APIs**: RESTful endpoints for airports, airlines, alliances, and calculations
+- **Distance Calculation**: Geopy library for accurate geodesic distance
 
 ### Frontend
-- **React** - UI framework
-- **Tailwind CSS** - Styling
-- **shadcn/ui** - Component library
-- **Lucide React** - Icons
-- **Vite** - Build tool
+- **Framework**: React with modern hooks
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **Icons**: Lucide React icons
+- **Animations**: Framer Motion for smooth transitions
 
-### Database Schema
-- **Airports** - Name, code, city, country, coordinates
-- **Airlines** - Name, code, country, alliance
-- **Loyalty Programs** - Name, airline, currency, alliance
-- **Elite Tiers** - Name, bonus percentage, program
-- **Booking Classes** - Code, name, cabin class, earning percentage
-- **Alliances** - Name, description
+## File Structure
+
+```
+├── main.py                 # Main Flask application
+├── requirements.txt        # Python dependencies
+├── render.yaml            # Render.com deployment configuration
+├── static/                # Built React frontend
+│   ├── index.html
+│   └── assets/
+├── README.md              # This file
+└── .gitignore            # Git ignore rules
+```
 
 ## API Endpoints
 
 - `GET /api/stats` - Application statistics
-- `GET /api/airports?search=<term>` - Search airports
-- `GET /api/alliances` - List all alliances
-- `GET /api/airlines?alliance_id=<id>` - List airlines (filtered by alliance)
-- `GET /api/loyalty-programs?alliance_id=<id>` - List programs (filtered by alliance)
-- `GET /api/booking-classes` - List booking classes
-- `GET /api/elite-tiers/<program_id>` - List elite tiers for program
-- `POST /api/calculate` - Calculate miles for route
+- `GET /api/airports?search={query}` - Search airports
+- `GET /api/alliances` - Get all alliances
+- `GET /api/airlines/{alliance_id}` - Get airlines by alliance
+- `GET /api/booking-classes` - Get all booking classes
+- `GET /api/elite-tiers` - Get all elite tiers
+- `POST /api/calculate` - Calculate miles for a route
 
-## Data Sources
+## Deployment Configuration
 
-### Airports
-Comprehensive list of international airports from multiple sources including:
-- IATA airport codes and names
-- City and country information
-- Geographic coordinates for distance calculations
-- Regional classifications
+The application is configured for seamless deployment on Render.com:
 
-### Airlines & Programs
-- All major Star Alliance members (United, Lufthansa, Singapore Airlines, etc.)
-- Complete Oneworld alliance (American, British Airways, Cathay Pacific, etc.)
-- Full SkyTeam coverage (Delta, Air France, KLM, etc.)
-- Major unallianced carriers (Emirates, Etihad, JetBlue, etc.)
-- Accurate loyalty program names and currencies
+- **Automatic Build**: Dependencies installed via requirements.txt
+- **Database Setup**: Automatic table creation and data seeding
+- **Static Files**: React frontend served by Flask
+- **Environment Variables**: Supports PostgreSQL via DATABASE_URL
 
-## License
+## Support
 
-This project is provided as-is for educational and personal use.
+This is a complete, production-ready application that requires no additional configuration. The database is automatically seeded with comprehensive data on first run.
