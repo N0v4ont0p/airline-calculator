@@ -1,0 +1,1307 @@
+[
+  {
+    "id": "united-mileageplus",
+    "name": "United MileagePlus",
+    "airline": "United Airlines",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.united.com/mileageplus",
+    "centsPerMile": 1.3,
+    "minimumMiles": 500,
+    "isRevenueBased": true,
+    "revenueMultiplier": {
+      "none": 5,
+      "silver": 7,
+      "gold": 8,
+      "platinum": 9,
+      "top": 11
+    },
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5, "P": 1.5,
+      "J": 1.5, "C": 1.5, "D": 1.5, "Z": 1.5,
+      "W": 1.0, "P": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "E": 1.0, "U": 1.0, "H": 1.0, "Q": 1.0, "V": 1.0,
+      "S": 0.5, "T": 0.5, "L": 0.5, "K": 0.5, "G": 0.5, "N": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "delta-skymiles",
+    "name": "Delta SkyMiles",
+    "airline": "Delta Air Lines",
+    "alliance": "SkyTeam",
+    "currency": "miles",
+    "website": "https://www.delta.com/skymiles",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": true,
+    "revenueMultiplier": {
+      "none": 5,
+      "silver": 7,
+      "gold": 8,
+      "platinum": 9,
+      "top": 11
+    },
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.5, "C": 1.5, "D": 1.5, "I": 1.5, "Z": 1.5,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "Q": 1.0, "K": 1.0,
+      "L": 0.5, "U": 0.5, "T": 0.5, "X": 0.5, "V": 0.5, "E": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "american-aadvantage",
+    "name": "American AAdvantage",
+    "airline": "American Airlines",
+    "alliance": "Oneworld",
+    "currency": "miles",
+    "website": "https://www.aa.com/aadvantage",
+    "centsPerMile": 1.4,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.5, "R": 1.5, "D": 1.5, "I": 1.5,
+      "W": 1.25,
+      "Y": 1.0, "B": 1.0, "H": 1.0, "K": 1.0, "M": 1.0, "L": 1.0, "V": 1.0, "G": 1.0, "S": 1.0,
+      "N": 0.5, "Q": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.4,
+      "gold": 0.6,
+      "platinum": 0.8,
+      "top": 1.2
+    }
+  },
+  {
+    "id": "alaska-mileageplan",
+    "name": "Alaska Mileage Plan",
+    "airline": "Alaska Airlines",
+    "alliance": "None",
+    "currency": "miles",
+    "website": "https://www.alaskaair.com/mileageplan",
+    "centsPerMile": 1.7,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.5, "C": 1.5, "D": 1.5, "I": 1.5, "Z": 1.5,
+      "W": 1.25,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "Q": 1.0, "K": 1.0, "L": 1.0, "U": 1.0, "T": 1.0,
+      "X": 0.5, "V": 0.5, "E": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.5,
+      "gold": 0.75,
+      "platinum": 1.0,
+      "top": 1.25
+    }
+  },
+  {
+    "id": "british-airways-avios",
+    "name": "British Airways Executive Club",
+    "airline": "British Airways",
+    "alliance": "Oneworld",
+    "currency": "Avios",
+    "website": "https://www.britishairways.com/executive-club",
+    "centsPerMile": 1.5,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.5, "C": 1.5, "D": 1.5, "I": 1.5, "R": 1.5,
+      "W": 1.25,
+      "Y": 1.0, "B": 1.0, "H": 1.0, "K": 1.0, "M": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "O": 0.5, "G": 0.25
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 1.0,
+      "top": 1.5
+    }
+  },
+  {
+    "id": "airfrance-flyingblue",
+    "name": "Air France/KLM Flying Blue",
+    "airline": "Air France / KLM",
+    "alliance": "SkyTeam",
+    "currency": "miles",
+    "website": "https://www.flyingblue.com",
+    "centsPerMile": 1.3,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5, "P": 1.5,
+      "J": 1.5, "C": 1.5, "D": 1.5, "I": 1.5, "Z": 1.5,
+      "W": 1.25,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "U": 1.0, "K": 1.0, "H": 1.0, "L": 1.0, "Q": 1.0, "T": 1.0,
+      "E": 0.5, "N": 0.5, "R": 0.5, "G": 0.5, "V": 0.5, "S": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "lufthansa-milesandmore",
+    "name": "Lufthansa Miles & More",
+    "airline": "Lufthansa",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.miles-and-more.com",
+    "centsPerMile": 1.4,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.5, "C": 1.5, "D": 1.5, "Z": 1.5,
+      "W": 1.25, "E": 1.25,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "U": 1.0, "H": 1.0, "Q": 1.0, "V": 1.0, "W": 1.0, "S": 1.0, "T": 1.0,
+      "L": 0.5, "K": 0.5, "P": 0.5, "O": 0.5, "G": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "singapore-krisflyer",
+    "name": "Singapore Airlines KrisFlyer",
+    "airline": "Singapore Airlines",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.singaporeair.com/krisflyer",
+    "centsPerMile": 1.8,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "Z": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "X": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 1.0,
+      "top": 1.5
+    }
+  },
+  {
+    "id": "cathay-asiamiles",
+    "name": "Cathay Pacific Asia Miles",
+    "airline": "Cathay Pacific",
+    "alliance": "Oneworld",
+    "currency": "miles",
+    "website": "https://www.asiamiles.com",
+    "centsPerMile": 1.6,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "I": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "H": 1.0, "K": 1.0, "M": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "qantas-frequent-flyer",
+    "name": "Qantas Frequent Flyer",
+    "airline": "Qantas",
+    "alliance": "Oneworld",
+    "currency": "points",
+    "website": "https://www.qantas.com/frequentflyer",
+    "centsPerMile": 1.5,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "I": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "H": 1.0, "K": 1.0, "M": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "ana-mileage-club",
+    "name": "ANA Mileage Club",
+    "airline": "All Nippon Airways",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.ana.co.jp/mileageclub",
+    "centsPerMile": 1.5,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "Z": 1.25,
+      "W": 1.0, "E": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "U": 1.0, "H": 1.0, "Q": 1.0, "V": 1.0, "K": 1.0, "L": 1.0,
+      "S": 0.7, "N": 0.7, "R": 0.5, "G": 0.5, "T": 0.3
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "jal-mileage-bank",
+    "name": "JAL Mileage Bank",
+    "airline": "Japan Airlines",
+    "alliance": "Oneworld",
+    "currency": "miles",
+    "website": "https://www.jal.co.jp/jalmile",
+    "centsPerMile": 1.4,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "I": 1.25,
+      "W": 1.0, "E": 1.0,
+      "Y": 1.0, "B": 1.0, "H": 1.0, "K": 1.0, "M": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "O": 0.5, "G": 0.5, "R": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.35,
+      "gold": 0.5,
+      "platinum": 1.0,
+      "top": 1.5
+    }
+  },
+  {
+    "id": "korean-air-skypass",
+    "name": "Korean Air SKYPASS",
+    "airline": "Korean Air",
+    "alliance": "SkyTeam",
+    "currency": "miles",
+    "website": "https://www.koreanair.com/skypass",
+    "centsPerMile": 1.3,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.2,
+      "gold": 0.5,
+      "platinum": 1.0,
+      "top": 1.5
+    }
+  },
+  {
+    "id": "air-canada-aeroplan",
+    "name": "Air Canada Aeroplan",
+    "airline": "Air Canada",
+    "alliance": "Star Alliance",
+    "currency": "points",
+    "website": "https://www.aircanada.com/aeroplan",
+    "centsPerMile": 1.5,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "Z": 1.25, "P": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "U": 1.0, "H": 1.0, "Q": 1.0, "V": 1.0, "W": 1.0, "S": 1.0, "T": 1.0,
+      "L": 0.5, "K": 0.5, "G": 0.5, "N": 0.5, "O": 0.5, "E": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "emirates-skywards",
+    "name": "Emirates Skywards",
+    "airline": "Emirates",
+    "alliance": "None",
+    "currency": "miles",
+    "website": "https://www.emirates.com/skywards",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "etihad-guest",
+    "name": "Etihad Guest",
+    "airline": "Etihad Airways",
+    "alliance": "None",
+    "currency": "miles",
+    "website": "https://www.etihad.com/guest",
+    "centsPerMile": 1.1,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "I": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "qatar-privilege-club",
+    "name": "Qatar Airways Privilege Club",
+    "airline": "Qatar Airways",
+    "alliance": "Oneworld",
+    "currency": "Qmiles",
+    "website": "https://www.qatarairways.com/privilegeclub",
+    "centsPerMile": 1.4,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "I": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "H": 1.0, "K": 1.0, "M": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "turkish-milessmiles",
+    "name": "Turkish Airlines Miles&Smiles",
+    "airline": "Turkish Airlines",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.turkishairlines.com/milesandsmiles",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "I": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "avianca-lifemiles",
+    "name": "Avianca LifeMiles",
+    "airline": "Avianca",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.lifemiles.com",
+    "centsPerMile": 1.3,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "I": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "latam-pass",
+    "name": "LATAM Pass",
+    "airline": "LATAM Airlines",
+    "alliance": "Oneworld",
+    "currency": "miles",
+    "website": "https://www.latampass.com",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "I": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "aeromexico-rewards",
+    "name": "Aeromexico Rewards",
+    "airline": "Aeromexico",
+    "alliance": "SkyTeam",
+    "currency": "points",
+    "website": "https://aeromexico.com/rewards",
+    "centsPerMile": 1.1,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "copa-connectmiles",
+    "name": "Copa Airlines ConnectMiles",
+    "airline": "Copa Airlines",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.copaair.com/connectmiles",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "jetblue-trueblue",
+    "name": "JetBlue TrueBlue",
+    "airline": "JetBlue Airways",
+    "alliance": "None",
+    "currency": "points",
+    "website": "https://www.jetblue.com/trueblue",
+    "centsPerMile": 1.3,
+    "minimumMiles": 500,
+    "isRevenueBased": true,
+    "revenueMultiplier": {
+      "none": 6,
+      "silver": 7,
+      "gold": 8,
+      "platinum": 9,
+      "top": 10
+    },
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "southwest-rapid-rewards",
+    "name": "Southwest Rapid Rewards",
+    "airline": "Southwest Airlines",
+    "alliance": "None",
+    "currency": "points",
+    "website": "https://www.southwest.com/rapidrewards",
+    "centsPerMile": 1.4,
+    "minimumMiles": 500,
+    "isRevenueBased": true,
+    "revenueMultiplier": {
+      "none": 6,
+      "silver": 8,
+      "gold": 10,
+      "platinum": 12,
+      "top": 14
+    },
+    "bookingClasses": {
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "virgin-atlantic",
+    "name": "Virgin Atlantic Flying Club",
+    "airline": "Virgin Atlantic",
+    "alliance": "None",
+    "currency": "miles",
+    "website": "https://www.virginatlantic.com/flyingclub",
+    "centsPerMile": 1.3,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.5, "C": 1.5, "D": 1.5, "I": 1.5,
+      "W": 1.25,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "iberia-plus",
+    "name": "Iberia Plus",
+    "airline": "Iberia",
+    "alliance": "Oneworld",
+    "currency": "Avios",
+    "website": "https://www.iberia.com/iberiaplus",
+    "centsPerMile": 1.3,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25, "I": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "finnair-plus",
+    "name": "Finnair Plus",
+    "airline": "Finnair",
+    "alliance": "Oneworld",
+    "currency": "Avios",
+    "website": "https://www.finnair.com/finnairplus",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "sas-eurobonus",
+    "name": "SAS EuroBonus",
+    "airline": "Scandinavian Airlines",
+    "alliance": "Star Alliance",
+    "currency": "points",
+    "website": "https://www.flysas.com/eurobonus",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "tap-miles-and-go",
+    "name": "TAP Miles&Go",
+    "airline": "TAP Air Portugal",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.flytap.com/milesandgo",
+    "centsPerMile": 1.1,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "thai-royal-orchid-plus",
+    "name": "Thai Airways Royal Orchid Plus",
+    "airline": "Thai Airways",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.thaiairways.com/royalorchidplus",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "asiana-club",
+    "name": "Asiana Club",
+    "airline": "Asiana Airlines",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://flyasiana.com/asianaclub",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "eva-air-infinity",
+    "name": "EVA Air Infinity MileageLands",
+    "airline": "EVA Air",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.evaair.com/infinitymileagelands",
+    "centsPerMile": 1.3,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "china-eastern-eastern-miles",
+    "name": "China Eastern Eastern Miles",
+    "airline": "China Eastern Airlines",
+    "alliance": "SkyTeam",
+    "currency": "miles",
+    "website": "https://www.ceair.com/easternmiles",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "china-southern-sky-pearl",
+    "name": "China Southern Sky Pearl Club",
+    "airline": "China Southern Airlines",
+    "alliance": "SkyTeam",
+    "currency": "miles",
+    "website": "https://www.csair.com/skypearl",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "air-china-phoenix-miles",
+    "name": "Air China PhoenixMiles",
+    "airline": "Air China",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.airchina.com/phoenixmiles",
+    "centsPerMile": 1.1,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "air-india-flying-returns",
+    "name": "Air India Flying Returns",
+    "airline": "Air India",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.airindia.com/flyingreturns",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "malaysia-airlines-enrich",
+    "name": "Malaysia Airlines Enrich",
+    "airline": "Malaysia Airlines",
+    "alliance": "Oneworld",
+    "currency": "miles",
+    "website": "https://www.malaysiaairlines.com/enrich",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "garuda-garudamiles",
+    "name": "Garuda Indonesia GarudaMiles",
+    "airline": "Garuda Indonesia",
+    "alliance": "SkyTeam",
+    "currency": "miles",
+    "website": "https://www.garuda-indonesia.com/garudamiles",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "vietnam-airlines-lotusmiles",
+    "name": "Vietnam Airlines Lotusmiles",
+    "airline": "Vietnam Airlines",
+    "alliance": "SkyTeam",
+    "currency": "miles",
+    "website": "https://www.vietnamairlines.com/lotusmiles",
+    "centsPerMile": 1.1,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "philippine-airlines-mabuhay-miles",
+    "name": "Philippine Airlines Mabuhay Miles",
+    "airline": "Philippine Airlines",
+    "alliance": "None",
+    "currency": "miles",
+    "website": "https://www.philippineairlines.com/mabuhaymiles",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "hawaiian-airlines-hawaiianmiles",
+    "name": "Hawaiian Airlines HawaiianMiles",
+    "airline": "Hawaiian Airlines",
+    "alliance": "None",
+    "currency": "miles",
+    "website": "https://www.hawaiianairlines.com/hawaiianmiles",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "westjet-rewards",
+    "name": "WestJet Rewards",
+    "airline": "WestJet",
+    "alliance": "None",
+    "currency": "dollars",
+    "website": "https://www.westjet.com/rewards",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": true,
+    "revenueMultiplier": {
+      "none": 5,
+      "silver": 7,
+      "gold": 9,
+      "platinum": 11,
+      "top": 13
+    },
+    "bookingClasses": {
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "icelandair-saga-club",
+    "name": "Icelandair Saga Club",
+    "airline": "Icelandair",
+    "alliance": "None",
+    "currency": "points",
+    "website": "https://www.icelandair.com/sagaclub",
+    "centsPerMile": 1.1,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "air-new-zealand-airpoints",
+    "name": "Air New Zealand Airpoints",
+    "airline": "Air New Zealand",
+    "alliance": "Star Alliance",
+    "currency": "dollars",
+    "website": "https://www.airnewzealand.com/airpoints",
+    "centsPerMile": 1.3,
+    "minimumMiles": 500,
+    "isRevenueBased": true,
+    "revenueMultiplier": {
+      "none": 5,
+      "silver": 7,
+      "gold": 9,
+      "platinum": 11,
+      "top": 13
+    },
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "virgin-australia-velocity",
+    "name": "Virgin Australia Velocity",
+    "airline": "Virgin Australia",
+    "alliance": "None",
+    "currency": "points",
+    "website": "https://www.velocityfrequentflyer.com",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "aegean-miles-bonus",
+    "name": "Aegean Airlines Miles+Bonus",
+    "airline": "Aegean Airlines",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.aegeanair.com/milesbonus",
+    "centsPerMile": 1.2,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "ethiopian-shebamiles",
+    "name": "Ethiopian Airlines ShebaMiles",
+    "airline": "Ethiopian Airlines",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.ethiopianairlines.com/shebamiles",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "south-african-voyager",
+    "name": "South African Airways Voyager",
+    "airline": "South African Airways",
+    "alliance": "Star Alliance",
+    "currency": "miles",
+    "website": "https://www.flysaa.com/voyager",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "kenya-airways-flying-blue",
+    "name": "Kenya Airways Flying Blue",
+    "airline": "Kenya Airways",
+    "alliance": "SkyTeam",
+    "currency": "miles",
+    "website": "https://www.kenya-airways.com/flyingblue",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "F": 1.5, "A": 1.5,
+      "J": 1.25, "C": 1.25, "D": 1.25,
+      "W": 1.0,
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5, "R": 0.5, "G": 0.5, "O": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "gol-smiles",
+    "name": "Gol Smiles",
+    "airline": "Gol Linhas Aéreas",
+    "alliance": "None",
+    "currency": "miles",
+    "website": "https://www.smiles.com.br",
+    "centsPerMile": 1.0,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  },
+  {
+    "id": "azul-tudoazul",
+    "name": "Azul TudoAzul",
+    "airline": "Azul Brazilian Airlines",
+    "alliance": "None",
+    "currency": "points",
+    "website": "https://www.voeazul.com.br/tudoazul",
+    "centsPerMile": 1.1,
+    "minimumMiles": 500,
+    "isRevenueBased": false,
+    "bookingClasses": {
+      "Y": 1.0, "B": 1.0, "M": 1.0, "H": 1.0, "K": 1.0, "L": 1.0, "V": 1.0, "S": 1.0, "N": 1.0,
+      "Q": 0.5, "T": 0.5, "E": 0.5, "U": 0.5
+    },
+    "eliteBonuses": {
+      "none": 0,
+      "silver": 0.25,
+      "gold": 0.5,
+      "platinum": 0.75,
+      "top": 1.0
+    }
+  }
+]
