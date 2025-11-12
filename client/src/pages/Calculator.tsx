@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { OrganicBlobs } from '@/components/OrganicBlobs';
+import { RacingCurves } from '@/components/RacingCurves';
 import { Plane, Search, Calculator as CalcIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -136,9 +138,12 @@ export default function Calculator() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Animated Backgrounds */}
+      <OrganicBlobs />
+      <RacingCurves />
       {/* Header */}
-      <header className="border-b border-border sticky top-0 z-50 glass">
+      <header className="border-b border-border sticky top-0 z-50 glass backdrop-blur-xl">
         <div className="container py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -157,16 +162,49 @@ export default function Calculator() {
       </header>
 
       {/* Main Content */}
-      <main className="container py-12">
+      <main className="container py-12 relative z-10">
         <div className="max-w-6xl mx-auto space-y-8">
           {/* Hero Section */}
-          <div className="text-center space-y-4 animate-fade-slide-up">
-            <h2 className="text-5xl md:text-6xl font-bold neon-text">
-              Calculate Your Miles
+          <div className="text-center space-y-6 py-12 animate-fade-slide-up">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 mb-4">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span className="text-sm font-medium text-primary">World's Best Miles Calculator</span>
+            </div>
+            
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-display font-black uppercase tracking-tight leading-none">
+              <span className="text-foreground">Calculate</span>
+              <br />
+              <span className="text-gradient animate-shimmer">Your Miles</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Compare 50+ airline loyalty programs instantly. Find the best value for your flights.
+            
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Compare <span className="text-primary font-bold">50+ airline loyalty programs</span> instantly.
+              Find the best value for your flights with accurate calculations.
             </p>
+            
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground pt-4">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <span className="text-primary font-bold">50+</span>
+                </div>
+                <span>Programs</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Plane className="w-4 h-4 text-primary" />
+                </div>
+                <span>10,000+ Airports</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <span className="text-primary">$</span>
+                </div>
+                <span>Real-time Values</span>
+              </div>
+            </div>
           </div>
 
           {/* Calculator Form */}

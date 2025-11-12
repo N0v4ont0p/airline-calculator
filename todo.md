@@ -1,102 +1,111 @@
-# Airline Miles Calculator - Project TODO
+# SkyMiles Ultimate - Project TODO
 
-## Phase 1: Data Infrastructure
-- [x] Download and process OpenFlights airport database (10,000+ airports)
-- [x] Download and process OpenFlights airline database (500+ airlines)
-- [x] Create comprehensive loyalty program database (50+ programs)
-- [x] Build booking class database with earning percentages
-- [x] Set up data files structure (JSON format)
+## Phase 1: Backend Infrastructure & Database
+- [x] Set up database schema for users, saved routes, calculation history
+- [x] Add promotions table for active bonus offers
+- [x] Add credit cards table for co-branded card bonuses
+- [x] Implement authentication endpoints (already provided by template)
+- [ ] Create tRPC procedures for calculator operations
+- [ ] Add Redis caching for airport/airline/program data
+- [ ] Implement rate limiting for API endpoints
 
-## Phase 2: Core Calculation Engine
-- [x] Implement Haversine formula for distance calculation
-- [x] Build miles earned calculation algorithm
-- [x] Implement fare class multiplier logic
-- [x] Add elite status bonus calculations
-- [x] Support revenue-based program calculations (Delta, United)
-- [x] Add minimum miles guarantee (500 miles)
-- [ ] Implement regional multipliers
-- [ ] Add promotion and bonus handling
+## Phase 2: Enhanced Data & Calculation Engine
+- [ ] Migrate existing airport/airline/program data to new structure
+- [ ] Add multi-leg trip calculation support
+- [ ] Implement credit card bonus calculations
+- [ ] Add promotions and bonus miles handling
+- [ ] Create tier qualifying miles calculations
+- [ ] Add segment bonus calculations
+- [ ] Implement partner airline earning rates
 
-## Phase 3: UI Design & Layout (Lando Norris Aesthetic)
-- [x] Set up color scheme (Dark Olive #282C20, Neon Yellow #D2FF00)
-- [x] Configure typography (Playfair Display, Inter)
-- [x] Create navigation bar with logo
-- [x] Design calculator form sections
-- [x] Build airport search with autocomplete
-- [x] Create airline search dropdown
-- [x] Design cabin class selector
-- [x] Build booking class selector
-- [x] Create elite status selector
-- [x] Add ticket price input for revenue-based programs
-- [x] Implement loyalty program multi-select)
+## Phase 3: Lando Norris-Inspired Design
+- [x] Update color scheme to deep racing green + neon yellow
+- [x] Add Google Fonts (Playfair Display, Montserrat, Inter, JetBrains Mono)
+- [x] Create organic blob animations with SVG/Canvas
+- [x] Implement racing track curve backgrounds
+- [ ] Add parallax scrolling effects
+- [ ] Create gradient overlays with cursor tracking
+- [x] Build animated hero section with massive typography
 
-## Phase 4: Calculation & Results Display
-- [x] Build distance calculation display
-- [x] Create results comparison table
-- [x] Implement best program highlighting
-- [x] Add estimated value calculations (cents per mile)
-- [x] Create visual comparison charts
-- [x] Build recommendations section
-- [ ] Add expandable program details
+## Phase 4: Advanced UI Components
+- [x] Build full-screen hero with animated background
+- [x] Create enhanced calculator form
+- [x] Implement airport search with autocomplete
+- [ ] Add multi-leg trip support
+- [ ] Add credit card selector component
+- [ ] Build promotions selector
+- [ ] Create elite status simulator
+- [ ] Implement transfer partners display
 
-## Phase 5: Advanced Features
-- [ ] Multi-leg trip support
-- [ ] Round-trip calculations
-- [x] Alliance comparison (Star Alliance, SkyTeam, Oneworld)
-- [ ] Partner airline earning display
-- [ ] Credit card bonus integration
-- [ ] Active promotions handling
+## Phase 5: Results & Visualization
+- [ ] Enhanced results display with animations
+- [ ] Animated bar charts for comparison
+- [ ] Number counter animations
+- [ ] Best value highlighting with neon glow
+- [ ] Alliance comparison views
+- [ ] Detailed program breakdown modals
+- [ ] Recommendations engine
 
-## Phase 6: Export & Save Features
-- [x] Export to CSV functionality
-- [x] Export to PDF functionality
-- [x] Share link generation
-- [x] Save routes to localStorage
-- [x] Calculation history tracking
+## Phase 6: User Features & Authentication
+- [ ] User registration and login (already provided)
+- [ ] Save favorite routes to database
+- [ ] Calculation history tracking
+- [ ] User profile management
+- [ ] Premium features (if applicable)
+- [ ] User preferences and settings
 
-## Phase 7: Responsive Design & Animations
-- [x] Mobile-first responsive design
-- [x] Smooth 0.75s transitions
-- [x] Loading animations (plane flying)
-- [x] Results fade-slide-up entrance
-- [ ] Floating background shapes (Future enhancement)
-- [ ] Parallax scroll effects (Future enhancement)
+## Phase 7: Export & Sharing
+- [ ] Enhanced CSV export with full details
+- [ ] Professional PDF reports with branding
+- [ ] Share link generation with URL encoding
+- [ ] QR code generation for sharing
+- [ ] Email reports functionality
+- [ ] Social media sharing templates
 
-## Phase 8: Performance & Optimization
-- [ ] Optimize bundle size
-- [ ] Implement lazy loading
+## Phase 8: Advanced Features
+- [ ] Multi-leg trip builder UI
+- [ ] Round-trip toggle and calculations
+- [ ] Credit card comparison tool
+- [ ] Active promotions page
+- [ ] Elite status progress tracker
+- [ ] Transfer partners calculator
+- [ ] Award booking value estimator
+
+## Phase 9: Performance & Optimization
+- [ ] Implement lazy loading for components
 - [ ] Add service worker for offline support
-- [ ] Optimize images and assets
-- [ ] Achieve sub-3-second load time
-- [ ] Implement efficient search algorithms
+- [ ] Optimize bundle size (target < 500KB)
+- [ ] Add skeleton loading states
+- [ ] Implement virtual scrolling for long lists
+- [ ] Optimize database queries with indexes
+- [ ] Add Redis caching layer
 
-## Phase 9: Testing & Validation
-- [x] Test basic calculation (JFK-LAX)
-- [x] Test minimum miles guarantee
-- [x] Test business class multiplier
-- [x] Test elite bonus calculations
-- [x] Test revenue-based programs
-- [x] Test deep discount economy
-- [x] Cross-browser testing (Chrome, Firefox, Safari, Edge)
-- [x] Mobile device testing
-
-## Phase 10: Documentation & Deployment
-- [x] Create user guide/help section
-- [x] Write deployment documentation
-- [x] Set up GitHub repository
-- [x] Configure Render.com deployment
-- [x] Set up auto-deploy from GitHub
-- [ ] Configure custom domain (if applicable)
-- [ ] Add analytics tracking
-- [ ] Create privacy policy
-- [ ] Create terms of service
-
-## Phase 11: Polish & Launch
-- [ ] Final design review
+## Phase 10: Testing & Quality
+- [ ] Test all calculation formulas
+- [ ] Cross-browser testing
+- [ ] Mobile responsiveness testing
 - [ ] Accessibility audit (WCAG 2.1 AA)
+- [ ] Performance testing (Lighthouse 95+)
+- [ ] Security audit
+- [ ] Load testing for API endpoints
+
+## Phase 11: Documentation & Deployment
+- [ ] Update README with new features
+- [ ] Create API documentation
+- [ ] Write deployment guide for Render.com
+- [ ] Set up environment variables
+- [ ] Configure PostgreSQL database
+- [ ] Set up Redis instance
+- [ ] Deploy to Render.com as Web Service
+- [ ] Configure custom domain
+- [ ] Set up monitoring and analytics
+
+## Phase 12: Polish & Launch
+- [ ] Final design review
 - [ ] SEO optimization
 - [ ] Meta tags and Open Graph
-- [ ] Sitemap generation
-- [ ] Error tracking setup
-- [ ] Performance monitoring
+- [ ] Error tracking setup (Sentry)
+- [ ] Analytics configuration
+- [ ] User feedback system
 - [ ] Launch preparation
+- [ ] Marketing materials
